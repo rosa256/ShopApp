@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        android:gravity="center_horizontal"
+        tools:layout_editor_absoluteY="8dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="114dp"
+            android:layout_height="115dp"
+
+            tools:srcCompat="@drawable/person_icon" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/emailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                android:background="@color/gray_lite"
+                android:drawableStart="@android:drawable/ic_dialog_email"
+                android:drawableLeft="@android:drawable/ic_dialog_email"
+                android:gravity="center|start"
+                android:hint="Email"
+                android:text="maniek"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorBlack" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/usernameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                android:background="@color/gray_lite"
+                android:drawableStart="@android:drawable/ic_dialog_info"
+                android:drawableLeft="@android:drawable/ic_dialog_info"
+                android:gravity="center|start"
+                android:hint="user name"
+                android:inputType="text"
+                android:text="maniek"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/passwordTextView"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                android:background="@color/gray_lite"
+                android:drawableStart="@android:drawable/ic_partial_secure"
+                android:drawableLeft="@android:drawable/ic_partial_secure"
+                android:gravity="center|start"
+                android:hint="password"
+                android:inputType="textPassword"
+                android:text="maniek"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/register_cardView"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="10dp">
+
+
+            <Button
+                android:id="@+id/button_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="register"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

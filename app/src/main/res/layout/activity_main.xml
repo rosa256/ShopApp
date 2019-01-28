@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/usernameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+
+                android:paddingRight="16dp"
+                android:text="Username"
+                android:textColor="@color/colorAccentOrange"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.Toolbar
+
+                android:id="@+id/toolbar"
+                android:layout_width="215dp"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </LinearLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.michaldrabik.tapbarmenulib.TapBarMenu
+        android:id="@+id/tapBarMenu"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+
+        app:tbm_backgroundColor="@color/colorPrimaryDark"
+        app:tbm_menuAnchor="bottom"
+        app:tbm_buttonPosition="right"
+
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/item1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_profile"
+            tools:visibility="visible"
+            android:onClick="aboutMe"
+
+            />
+
+        <ImageView
+            android:id="@+id/item2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_cart"
+            android:onClick="myCart"
+            />
+
+
+        <ImageView
+            android:id="@+id/item3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_category_80"
+            android:onClick="showCategories"
+            />
+
+        <Space
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            />
+
+    </com.michaldrabik.tapbarmenulib.TapBarMenu>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--   <android.support.design.widget.FloatingActionButton
+           android:id="@+id/fab"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="bottom|end"
+           android:layout_margin="@dimen/fab_margin"
+           app:srcCompat="@android:drawable/ic_dialog_email" />
+   -->
+</android.support.design.widget.CoordinatorLayout>
