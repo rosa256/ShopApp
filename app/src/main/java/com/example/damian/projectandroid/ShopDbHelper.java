@@ -15,6 +15,12 @@ import java.util.ArrayList;
 
 public class ShopDbHelper extends SQLiteOpenHelper {
 
+    private Context context;
+
+    private static final String KEY_FIRST_NAME = "firstname";
+    private static final String KEY_SURNAME = "surname";
+    private static final String KEY_PHONE = "phone";
+    private static final String KEY_ADDRESS = "address";
     private final ArrayList<Category> categoryList = new ArrayList<Category>();
     private final ArrayList<Item> itemList = new ArrayList<Item>();
 
@@ -43,6 +49,7 @@ public class ShopDbHelper extends SQLiteOpenHelper {
 
     public ShopDbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
 
     }
 
@@ -52,6 +59,10 @@ public class ShopDbHelper extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY, "
                 + KEY_USERNAME + " TEXT,"
                 + KEY_PASSWORD + " TEXT,"
+                + KEY_FIRST_NAME + " TEXT,"
+                + KEY_SURNAME + " TEXT,"
+                + KEY_PHONE + " TEXT,"
+                + KEY_ADDRESS + " TEXT,"
                 + KEY_EMAIL + " TEXT" + ")";
         db.execSQL(CREATE_USER_TABLE);
 
@@ -159,7 +170,10 @@ public class ShopDbHelper extends SQLiteOpenHelper {
         values.put(KEY_EMAIL, user.getEmail()); // User Emial
         values.put(KEY_USERNAME, user.getUsername()); // User username
         values.put(KEY_PASSWORD, user.getPassword()); // User password
-
+        values.put(KEY_FIRST_NAME, ""); // User password
+        values.put(KEY_SURNAME, ""); // User password
+        values.put(KEY_PHONE, ""); // User password
+        values.put(KEY_ADDRESS, ""); // User password
         // Inserting Row
         db.insert(TABLE_USER, null, values);
         db.close(); // Closing database connection
@@ -214,7 +228,6 @@ public class ShopDbHelper extends SQLiteOpenHelper {
 
         cursor.moveToFirst();
 
-        System.out.println("CCCCCCCOOOOOUNT: "+ cursor.getCount());
         if(cursor.getCount() != 0)
         do{
             itemList.add(new Item(
@@ -240,7 +253,11 @@ public class ShopDbHelper extends SQLiteOpenHelper {
                 Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(KEY_ID))),
                 cursor.getString(cursor.getColumnIndexOrThrow(KEY_USERNAME)),
                 cursor.getString(cursor.getColumnIndexOrThrow(KEY_EMAIL)),
-                cursor.getString(cursor.getColumnIndexOrThrow(KEY_PASSWORD))
+                cursor.getString(cursor.getColumnIndexOrThrow(KEY_PASSWORD)),
+                cursor.getString(cursor.getColumnIndexOrThrow(KEY_FIRST_NAME)),
+                cursor.getString(cursor.getColumnIndexOrThrow(KEY_SURNAME)),
+                cursor.getString(cursor.getColumnIndexOrThrow(KEY_PHONE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(KEY_ADDRESS))
                 );
         return user;
     }
@@ -291,11 +308,11 @@ public class ShopDbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         ArrayList<Category> categriesInitList = new ArrayList<>();
 
-        Category c1 = new Category("Komputery i Laptopy", R.drawable.computer_and_laptops);
-        Category c2 = new Category("Procesory", R.drawable.procesors_banner);
-        Category c3 = new Category("Płyty Główne", R.drawable.motherboard_banner);
-        Category c5 = new Category("Klawiatury", R.drawable.keyboard_banner);
-        Category c4 = new Category("Myszki ", R.drawable.mouse_banner);
+        Category c1 = new Category(context.getString(R.string.pcs_and_laptops), R.drawable.computerandlaptops);
+        Category c2 = new Category(context.getString(R.string.procesors), R.drawable.procesors_banner);
+        Category c3 = new Category(context.getString(R.string.motherboard), R.drawable.motherboard_banner);
+        Category c5 = new Category(context.getString(R.string.keyBoard), R.drawable.keyboard_banner);
+        Category c4 = new Category(context.getString(R.string.mouses), R.drawable.mouse_banner);
 
         categriesInitList.add(c1);
         categriesInitList.add(c2);
@@ -305,19 +322,32 @@ public class ShopDbHelper extends SQLiteOpenHelper {
 
         for (Category category : categriesInitList) {
             values.put(KEY_TITLE, category.getCategoryTitle()); // Category Title
-            values.put(KEY_BANNER_IMAGE, category.getCategoryImageBanner()); // CAtegory Image
+            values.put(KEY_BANNER_IMAGE, category.getCategoryImageBanner()); // Category Image
             db.insert(TABLE_CATEGORY,null,values);
         }
         values.clear();
         ArrayList<Item> itemsInitList = new ArrayList<>();
 
-        Item i1 = new Item("Laptop Acer Predator",2500.0,1,R.drawable.acer_predator);
+        Item i1 = new Item("Laptop Acer Predator",2500.00,1,R.drawable.acer_predator);
         Item i2 = new Item("Laptop Hp Paque",2999.99,1,R.drawable.acer_predator);
-        Item i3 = new Item("Laptop Acer Premium",3250.0,1,R.drawable.acer_predator);
+        Item i3 = new Item("Laptop Acer Premium",3250.00,1,R.drawable.acer_predator);
 
-        Item i4 = new Item("Procesor Intel i7",1440.0,2,R.drawable.procesor);
+        Item i4 = new Item("Procesor Intel i7",1440.00,2,R.drawable.procesor);
         Item i5 = new Item("Procesor Ryzen AMD",980.99,2,R.drawable.procesor);
         Item i6 = new Item("Procesor Intel i5",570.80,2,R.drawable.procesor);
+
+        Item i10 = new Item("KGE Z-370",1440.00,3,R.drawable.motherboard);
+        Item i11 = new Item("E-xtreme Asroc 33",980.99,3,R.drawable.motherboard);
+        Item i12 = new Item("Mother-Land PB3",570.80,3,R.drawable.motherboard);
+
+        Item i7 = new Item("Mysz Azor KGP-321",370.00,4,R.drawable.mouse);
+        Item i8 = new Item("Mysz Zowie FK1",219.99,4,R.drawable.mouse);
+        Item i9 = new Item("Mysz Razer KG-3",540.80,4,R.drawable.mouse);
+
+        Item i13 = new Item("KG-Pinch 518",318.00,5,R.drawable.keyboard);
+        Item i14 = new Item("Corsair TDE-318",518.99,5,R.drawable.keyboard);
+        Item i15 = new Item("Dragon Red 8",159.80,5,R.drawable.keyboard);
+
 
         itemsInitList.add(i1);
         itemsInitList.add(i2);
@@ -325,6 +355,17 @@ public class ShopDbHelper extends SQLiteOpenHelper {
         itemsInitList.add(i4);
         itemsInitList.add(i5);
         itemsInitList.add(i6);
+        itemsInitList.add(i7);
+        itemsInitList.add(i8);
+        itemsInitList.add(i9);
+        itemsInitList.add(i10);
+        itemsInitList.add(i11);
+        itemsInitList.add(i12);
+        itemsInitList.add(i13);
+        itemsInitList.add(i14);
+        itemsInitList.add(i15);
+
+
 
         for(Item item: itemsInitList){
             values.put(KEY_NAME, item.getName());
@@ -333,6 +374,18 @@ public class ShopDbHelper extends SQLiteOpenHelper {
             values.put(KEY_BANNER_ITEM, item.getItemBanner());
             db.insert(TABLE_ITEMS,null,values);
         }
+    }
+
+
+    public void updateProfile(String firstname, String surname, String phone, String address, int userID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(KEY_FIRST_NAME,firstname);
+        contentValues.put(KEY_SURNAME,surname);
+        contentValues.put(KEY_PHONE,phone);
+        contentValues.put(KEY_ADDRESS,address);
+        db.update(TABLE_USER, contentValues,KEY_ID + " = ?",new String[] {String.valueOf(userID)});
+
     }
 }
 

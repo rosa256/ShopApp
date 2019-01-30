@@ -32,4 +32,15 @@ dependencies {
     implementation 'com.github.michaldrabik:tapbarmenu:1.0.5'
     annotationProcessor 'com.jakewharton:butterknife:7.0.1'
     implementation 'com.jakewharton:butterknife:7.0.1'
+    implementation 'com.squareup:seismic:1.0.2'
+
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    //implementation 'com.google.firebase:firebase-database:16.0.5'
+
+    implementation 'com.google.firebase:firebase-crash:16.2.1'
+
+
+
 }
+
+apply plugin: 'com.google.gms.google-services'

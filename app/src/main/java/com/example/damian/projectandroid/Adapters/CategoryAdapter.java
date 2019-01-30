@@ -68,16 +68,11 @@ public class CategoryAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ("My toast,\n position: "+ position + ",\n Title: "+viewHolder.categoryTitle.getText() +
-                        ", \n DbCategoryID: " + viewHolder._id),
-                        Toast.LENGTH_LONG).show();
-
 
                 Intent intent = new Intent(context, CategoryItemActivity.class);
                 intent.putExtra("categoryID",viewHolder._id);
                 intent.putExtra("loggedUser",loggedUser);
                 context.startActivity(intent);
-
             }
         });
 

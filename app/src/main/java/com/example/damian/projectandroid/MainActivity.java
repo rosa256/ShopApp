@@ -11,9 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.damian.projectandroid.Models.User;
+
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 
 
@@ -23,9 +26,16 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     TextView usernameTV;
+
     User activeUser = new User();
     @Bind(R.id.tapBarMenu)
     TapBarMenu tapBarMenu;
+    private Button updateButton;
+    private ShopDbHelper shopDbHelper;
+    private TextView firstnameTextView;
+    private TextView surnameTextView;
+    private TextView phoneTextView;
+    private TextView addressTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +43,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        shopDbHelper = new ShopDbHelper(this);
+
 
         activeUser = (User) getIntent().getSerializableExtra("logedUser");
         usernameTV = (TextView) findViewById(R.id.usernameTV);
         usernameTV.setText(activeUser.getUsername());
+        updateButton = (Button) findViewById(R.id.button_update);
+        firstnameTextView = (TextView) findViewById(R.id.firstName);
+        surnameTextView = (TextView) findViewById(R.id.surName);
+        phoneTextView = (TextView) findViewById(R.id.telephone);
+        addressTextView = (TextView) findViewById(R.id.addres);
 
-        System.out.println(activeUser.getEmail());
-        System.out.println(activeUser.getUsername());
-        System.out.println(activeUser.getPassword());
+        if(!activeUser.getFirstname().equals(""))
+            firstnameTextView.setText(activeUser.getFirstname());
+        if(!activeUser.getSurname().equals(""))
+            surnameTextView.setText(activeUser.getSurname());
+        if(!activeUser.getPhone().equals(""))
+            phoneTextView.setText(activeUser.getPhone());
+        if(!activeUser.getAddress().equals(""))
+            addressTextView.setText(activeUser.getAddress());
 
         ButterKnife.bind(this);
+
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                shopDbHelper.updateProfile(
+                        firstnameTextView.getText().toString(),
+                        surnameTextView.getText().toString(),
+                        phoneTextView.getText().toString(),
+                        addressTextView.getText().toString(),
+                        activeUser.get_id()
+                        );
+
+                Toast.makeText(MainActivity.this,getApplicationContext().getString(R.string.updatedData),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @OnClick(R.id.tapBarMenu) public void onMenuButtonClick() {

@@ -47,7 +47,7 @@
                     android:id="@+id/descriptionTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hej! Miło mi, że wpadłeś zobaczyć Aplikację.\nInteresuję się programowanie już od szkoły średniej. \nProgramuję w takich językach jak Python, Java, C czy C++.\nW wolnej chwili lubię również posłuchać dobrej muzyki.\nJeżeli masz ochotę, mile widziany będzie feedback. :)\nInne moje projekty zobaczysz na githubie. "
+                    android:text="@string/aboutMeDescription"
                     android:textSize="14sp" />
 
                 <TextView

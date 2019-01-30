@@ -6,9 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
@@ -23,7 +29,7 @@
                 android:layout_marginTop="8dp"
 
                 android:paddingRight="16dp"
-                android:text="Username"
+                android:text="@string/username"
                 android:textColor="@color/colorAccentOrange"
                 android:textSize="26sp"
                 android:textStyle="bold" />
@@ -37,8 +43,120 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
         </LinearLayout>
 
-
     </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="515dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="136dp"
+            android:layout_height="150dp"
+            android:background="@color/colorPrimary"
+            app:srcCompat="@drawable/person_icon" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                android:background="@color/gray_lite"
+                android:drawableStart="@android:drawable/ic_dialog_info"
+                android:gravity="center|start"
+                android:hint="@string/firstname"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorBlack" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/surName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                android:background="@color/gray_lite"
+                android:drawableStart="@android:drawable/ic_dialog_info"
+                android:gravity="center|start"
+                android:hint="@string/surname"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorBlack" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/telephone"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                android:background="@color/gray_lite"
+                android:drawableStart="@android:drawable/stat_sys_phone_call"
+                android:gravity="center|start"
+                android:hint="@string/phone_number"
+                android:inputType="numberDecimal"
+                android:textColor="@color/colorBlack" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/addres"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                android:background="@color/gray_lite"
+                android:drawableStart="@android:drawable/ic_dialog_map"
+                android:gravity="center|start"
+                android:hint="@string/address"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorBlack" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/updateCardView"
+            android:layout_width="190dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="10dp">
+
+            <Button
+                android:id="@+id/button_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/update"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24dp" />
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    </LinearLayout>
+
+
 
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
@@ -101,7 +219,6 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
     <!--   <android.support.design.widget.FloatingActionButton
            android:id="@+id/fab"
            android:layout_width="wrap_content"

@@ -99,8 +99,10 @@ public class ItemAdapter extends BaseAdapter {
                 MyCart.totalPrice *= 100;
                 MyCart.totalPrice = Double.valueOf(Math.round(MyCart.totalPrice));
                 MyCart.totalPrice /= 100;
-
-                MyCart.totalPriceTextView.setText("Podsumowanie: "+ MyCart.totalPrice +"zł");
+                if(MyCart.isDiscount)
+                    MyCart.totalPriceTextView.setText("Podsumowanie: "+ MyCart.totalPrice +"zł -5%");
+                else
+                    MyCart.totalPriceTextView.setText("Podsumowanie: "+ MyCart.totalPrice +"zł");
             }
         });
 

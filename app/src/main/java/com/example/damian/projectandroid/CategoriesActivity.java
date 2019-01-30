@@ -35,10 +35,8 @@ public class CategoriesActivity extends AppCompatActivity {
         categoryArrayList = shopDbHelper.getCategories();
 
 
-        // Setup the data source
         CategoryAdapter adapter = new CategoryAdapter(this, categoryArrayList,(User) getIntent().getSerializableExtra("loggedUser"));
 
-// get the ListView and attach the adapter
         ListView itemsListView  = (ListView) findViewById(R.id.category_ListView);
         itemsListView.setAdapter(adapter);
     }

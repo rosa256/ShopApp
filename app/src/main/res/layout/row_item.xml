@@ -40,7 +40,7 @@
                     android:paddingRight="16dp"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
-                    android:text="Nazwa:" />
+                    android:text="@string/name" />
 
                 <TextView
                     android:id="@+id/nameTextView"
@@ -59,13 +59,13 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/categoryTextViewRowItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:paddingRight="16dp"
                     android:textColor="@color/colorGreyLight"
-                    android:text="CategoryID:"
+                    android:text="@string/category"
                     android:textSize="16sp" />
 
                 <TextView
@@ -83,13 +83,13 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textViewPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:paddingRight="16dp"
                     android:textColor="@color/colorBlack"
-                    android:text="Cena:"
+                    android:text="@string/price"
                     android:textSize="16sp" />
 
                 <TextView
@@ -108,7 +108,7 @@
                     android:layout_gravity="top"
                     android:paddingRight="16dp"
                     android:textColor="@color/colorBlack"
-                    android:text="zł"
+                    android:text="@string/currenecy"
                     android:textSize="16sp" />
 
             </LinearLayout>

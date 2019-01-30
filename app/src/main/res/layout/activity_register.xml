@@ -19,7 +19,7 @@
             android:layout_width="114dp"
             android:layout_height="115dp"
 
-            tools:srcCompat="@drawable/person_icon" />
+            tools:background="@drawable/person_icon" />
 
         <android.support.v7.widget.CardView
             android:layout_width="300dp"
@@ -35,8 +35,8 @@
                 android:drawableStart="@android:drawable/ic_dialog_email"
                 android:drawableLeft="@android:drawable/ic_dialog_email"
                 android:gravity="center|start"
-                android:hint="Email"
-                android:text="maniek"
+                android:hint="@string/email"
+                android:text="maniek@gmail.com"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/colorBlack" />
         </android.support.v7.widget.CardView>
@@ -55,7 +55,7 @@
                 android:drawableStart="@android:drawable/ic_dialog_info"
                 android:drawableLeft="@android:drawable/ic_dialog_info"
                 android:gravity="center|start"
-                android:hint="user name"
+                android:hint="@string/user_name"
                 android:inputType="text"
                 android:text="maniek"
                 android:textColor="@color/colorBlack"
@@ -77,7 +77,7 @@
                 android:drawableStart="@android:drawable/ic_partial_secure"
                 android:drawableLeft="@android:drawable/ic_partial_secure"
                 android:gravity="center|start"
-                android:hint="password"
+                android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:text="maniek"
                 android:textColor="@color/colorBlack"
@@ -87,7 +87,7 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/register_cardView"
-            android:layout_width="110dp"
+            android:layout_width="131dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             app:cardBackgroundColor="@color/colorPrimary"
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="register"
+                android:text="@string/register"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
         </android.support.v7.widget.CardView>

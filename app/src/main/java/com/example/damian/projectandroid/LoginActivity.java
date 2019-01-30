@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     ShopDbHelper shopDbHelper;
     TextView usernameTextView, passwordTextView;
     Button loginButton,createAccountButton;
-    CardView warningView;
+    TextView warningView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +28,14 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.button_login);
         createAccountButton = (Button) findViewById(R.id.create_account);
 
-        warningView = (CardView) findViewById(R.id.warningLoginCardView);
+        warningView = (TextView) findViewById(R.id.warnUser);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (shopDbHelper.checkUser(usernameTextView.getText().toString(),
+                if (shopDbHelper.checkUser(
+                    usernameTextView.getText().toString(),
                     passwordTextView.getText().toString())) {
 
                     Intent accountsIntent = new Intent(getApplicationContext(), MainActivity.class);
